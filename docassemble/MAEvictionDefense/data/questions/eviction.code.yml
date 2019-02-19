@@ -351,12 +351,10 @@ code: |
   last_months_rent.violated = last_months_rent.over_a_year and (not last_months_rent.paid_interest)
 ---
 code: |
-  ma_holidays = holidays.US(state='MA')
-  answer_date_is_holiday = case.answer_date in ma_holidays and (not 'Evacuation Day' in ma_holidays.get(case.answer_date))
-  answer_date_holiday = ma_holidays.get(case.answer_date)
-  court_date_is_holiday = court_date in ma_holidays and (not 'Evacuation Day' in ma_holidays.get(court_date))
-  court_date_holiday = ma_holidays.get(court_date)
-  del ma_holidays
+  answer_date_is_holiday = case.answer_date in ma_holidays() and (not 'Evacuation Day' in ma_holidays().get(case.answer_date))
+  answer_date_holiday = ma_holidays().get(case.answer_date)
+  court_date_is_holiday = court_date in ma_holidays() and (not 'Evacuation Day' in ma_holidays().get(court_date))
+  court_date_holiday = ma_holidays().get(court_date)
 ---
 code: |
   if share_email:

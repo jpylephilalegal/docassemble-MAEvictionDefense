@@ -37,9 +37,9 @@ modules:
   - docassemble.base.legal
   - docassemble.MACourts.macourts
   - .discovery
+  - .maholiday
 ---
 imports:
-  - holidays
   - dt_send_answers  
   #- re
 ---
